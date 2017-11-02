@@ -1,0 +1,413 @@
+@btm: #999;
+@bg-body: #D2B4FF;
+@bg-container: #fff;
+@bg-hover: rgba(0,0,0,0.1);
+@font-face{
+    font-family: "ClassicaOne";
+    src: url("../fonts/ClassicaOne.ttf");
+}
+@font-face{
+    font-family: "Bringin";
+    src: url("../fonts/Bringin.ttf");
+}
+@font-face{
+    font-family: "OpenSans-Bold";
+    src: url("../fonts/OpenSans-Bold.ttf");
+}
+@font-face{
+    font-family: "OpenSans-Regular";
+    src: url("../fonts/OpenSans-Regular.ttf");
+}
+@font-face{
+    font-family: "OpenSans-Light";
+    src: url("../fonts/OpenSans-Light.ttf");
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+table, th, td {
+   border: 1px solid #222
+}
+th, td {
+    text-align: center;
+    padding: 5px;
+}
+a,a:hover{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+body{
+    overflow: hidden;
+    background: @bg-body;
+    padding-top: 38px;
+}
+.container-fluid{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+}
+.container--add, .container--edit{
+    min-width: 100vw;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    .overlay{
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0,0,0,.5);
+        z-index: 2;
+        display: none;
+    }
+    .task--add, .task--edit{
+        background: #fff;
+        border: 1px solid @btm;
+        position: absolute;
+        margin: 0 auto;
+        z-index: 2;
+        display: none;
+        .menu{
+            position: relative;
+            margin: 15px;
+
+            font-size: 20px;
+            .title{
+            }
+            .close{
+                cursor: pointer;
+                transition: 300ms;
+                position: absolute;
+                right: 0;
+                &:hover{
+                    color: #00A0FF;
+                }
+            }
+        }
+        #form--add, #form--edit{
+            width: 40vw;
+            display: inline-grid;
+            padding: 0 20px;
+            select {
+                margin-bottom: 20px;
+            }
+            input{
+                width: 100%;
+            }
+            button{
+                padding: 15px 35px;
+                margin: 10px 0;
+                outline: none;
+                background: #fff;
+                border: 1px solid @btm;
+                cursor: pointer;
+                transition: 300ms;
+                &:hover{
+                    color: #fff;
+                    background: #00A0FF;
+                }
+            }
+            ul.questions {
+                li {
+                    label {
+                        display: flex;
+                        padding-bottom: 10px;
+                        .label {
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+            .select {
+                display: flex;
+                .label {
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+}
+.container{
+    background: @bg-container;
+    width: 100%;
+    border: 1px solid @btm;
+    overflow: hidden;
+}
+.container--login{
+    background: @bg-container;
+    border: 1px solid @btm;
+    overflow: hidden;
+}
+.container--trash, .container--done{
+    overflow-y: auto;
+}
+.container--active{
+    border-left: 0;
+    border-right: 0;
+    overflow-y: auto;
+    .header{
+        display: flex;
+        line-height: 40px;
+        border: 1px solid #999;
+        font-family: Bringin;
+        position: absolute;
+        background: #fff;
+        top: -40px;
+        left: 0;
+        width: 100%;
+        .logo{
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            color: #999;
+            font-size: 22px;
+        }
+        .logForm {
+            display: flex;
+            justify-content: flex-end;
+            ul {
+                li {
+                    position: relative;
+                    float: left;
+                    #ageS {
+                        border: 0;
+                        border-left: 1px solid @btm;
+                        height: 43px;
+                    }
+                    a {
+                        font-style: oblique;
+                        border-left: 1px solid @btm;
+                        padding: 0 15px;
+                        display: block;
+                        color: @btm;
+                        font-size: 22px;
+                        transition: 300ms;
+                        &:hover {
+                            background: @bg-hover;
+                        }
+                    }
+                    a.active{
+                        background: #F1FE28;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                    a.done{
+                        background: #00BB28;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                    a.trash{
+                        background: #b00000;
+                        color: #E3C2C2;
+                        cursor: pointer;
+                    }
+                    a.exit:hover{
+                        background: #00A0FF;
+                        color: #fff;
+                    }
+                    .hidden-info {
+                        position: absolute;
+                        width: 100px;
+                        min-height: 1px;
+                        font-family: sans-serif;
+                        line-height: 17px;
+                        top: 100%;
+                        left: 0;
+                        visibility: hidden;
+                        background: #fff;
+                        padding: 20px 10px;
+                        border-radius: 5px;
+                        border: 1px solid #00A0FF;
+                    }
+                    &:hover {
+                       .hidden-info {
+                            visibility: visible;
+                       }
+                    }
+                }
+
+            }
+            .add, 
+            .settings {
+                color: #00A0FF;
+                transition: 300ms;
+                cursor: pointer;
+                line-height: 40px;
+                &:hover{
+                    background: #00A0FF;
+                    color: #fff;
+                }
+            }
+            #settings {
+                position: absolute;
+                display: none;
+                top: 100%;
+                left: 0;
+                width: 285px;
+                border: 1px solid #00A0FF;
+                background: #fff;
+                .settings-title {
+                    border-bottom: 1px solid #00A0FF;
+                    text-align: center;
+                    text-transform: uppercase;
+                }
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 10px;
+                    span {
+                        font-family: sans-serif;
+                        padding-right: 10px;
+                    }
+                    input {
+                        margin: 10px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+.content{
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid @btm;
+    #log-in{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding: 50px;
+        h1{
+            color: #6E6E6E;
+            margin: 10px 0;
+        }
+        input,button{
+            -webkit-border-radius: 50px;
+            -moz-border-radius:50px;
+            border-radius:50px;
+            margin: 5px 0;
+            padding: 15px 25px;
+        }
+        input{
+            border: 1px solid @btm;
+        }
+        input:focus,button:focus{
+            outline: none;
+            border: 1px solid #00A0FF;
+        }
+        button{
+            margin: 20px 0;
+            background: #fff;
+            border: 1px solid @btm;
+            cursor: pointer;
+            transition: 300ms;
+            color: #6E6E6E;
+            &:hover{
+                background: #00A0FF;
+                color: #fff;
+            }
+        }
+        a{
+            color: #00A0FF;
+            font-size: 18px;
+            transition: 300ms;
+            &:hover{
+                color: #6E6E6E;
+            }
+        }
+        a.login, a.signup{
+            margin: 5px 0;
+            background: #fff;
+            border: 1px solid @btm;
+            cursor: pointer;
+            transition: 300ms;
+            color: #6E6E6E;
+            padding: 10px 30px;
+            &:hover{
+                background: #00A0FF;
+                color: #fff;
+            }
+        }
+    }
+}
+.task{
+    display: flex;
+    flex-direction: column;
+    font-family: OpenSans-Light;
+    #task{
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid @btm;
+        padding: 10px 0;
+        p{
+            font-size: 13px;
+            padding: 5px 20px;
+            margin: 0 auto;
+            max-width:250px;
+            text-align: justify;
+            color: #fff;
+        }
+        .button{
+            display: flex;
+            justify-content: flex-end;
+            margin: 0 10px;
+            .apply, .remove, .recycle{
+                a{
+                    margin: 0 5px;
+                    padding: 5px 10px;
+                    transition: 300ms;
+                }
+            }
+            .apply{
+                a{
+                    color: #00BB28;
+                    border: 1px solid #00BB28;
+                    &:hover{
+                        color: #fff;
+                        background: #00BB28;
+                    }
+                }
+            }
+            .remove{
+                a{
+                    color: #b00000;
+                    border: 1px solid #b00000;
+                    &:hover{
+                        color: #fff;
+                        background: #b00000;
+                    }
+                }
+            }
+            .recycle{
+                a{
+                    color: #F1FE28;
+                    border: 1px solid #F1FE28;
+                    &:hover{
+                        color: #fff;
+                        background: #F1FE28;
+                    }
+                }
+            }
+        }
+    }
+}
+.block {
+    width: 45%;
+    padding: 10px 2.5%;
+    h2 {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    &.objects {
+        border-left: 1px solid #222;
+        float: right;
+    }
+    &.actions {
+        border-right: 1px solid #222;
+    }
+}
