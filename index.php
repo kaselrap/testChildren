@@ -71,28 +71,31 @@
                     if ( empty( $question_action ) || empty ( $question_object ) ) {
                         echo '<p>Тест не может быть начат. Вопросов нет!</p>';
                     } else {
-                        echo '<button href="limitations" class="nextPage">Next</button>';
+                        echo '<button href="theTask" class="nextPage">Next</button>';
                     }
                 ?> 
                 </div>
            </div>
-           
+           <div class="theTask">
+               <h1 id="now"></h1>
+               <button href="limitations" class="nextPage center">Next</button>
+            </div>
             <div class="limitations">
-                <h1 id="Describe">Describe the shortcomings of this subject</h1>
+                <h1 id="Describe"></h1>
                 <p class="question"><?php echo $question_object_langs->$lang;; ?></p>
                 <div class="question-block">
                     <p><input class="0" type="text"></p>
                 </div>
                 <button class="plus">+</button>
-                <button href="how-to-fix" class="nextPage">Next</button>
+                <button href="how-to-fix" class="nextPage bottom">Next</button>
                 <p class="timer"></p>
             </div>
             
             
             <div class="how-to-fix">
-                <h1 id="shortcomings">Describe how to resolve these shortcomings</h1>
+                <h1 id="shortcomings"></h1>
                 <div class="how-to-fix-main"></div>
-                <button href="limitations" class="nextPage">Next</button>
+                <button href="theTask" class="nextPage bottom">Next</button>
                 <p class="timer"></p>
             </div>
             
@@ -100,6 +103,7 @@
             
             <div class="succes">
                  <h1 id="Thanks">Thanks for answers!</h1>
+                  <button id="reload" class=" center"></button>
             </div>
 
         </main>
