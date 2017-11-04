@@ -5,7 +5,7 @@
     margin: 0;
     padding: 0; 
      font-family:Rubik;
-    src: url(../fonts/Rubik-Light.ttf);
+   
 }
 @font-face {
     font-family:Rubik;
@@ -22,7 +22,14 @@
     background: #000000 url(http://hello-site.ru//main/images/preloads/tail-spin.svg) center center no-repeat;
     background-size:41px;
 }
-.limitations, .succes, .how-to-fix {
+
+.limitations, .succes, .how-to-fix, .theTask {
+  width: 75%;
+}
+.center {
+    margin: 0 auto;
+}
+.limitations, .succes, .how-to-fix, .theTask {
     display: none;  
 }
 .select{
@@ -110,6 +117,9 @@ h1 {
     text-transform:uppercase;
     text-align:  center;
     margin-bottom: 20px;
+    
+ 
+
 }
 .question {
    color: #e8e8e8;
@@ -127,15 +137,18 @@ h1 {
     margin-bottom: 20px;
 }
 .timer {
+    width: 4%;
         color: #e8e8e8;
     font-size: 2vw;
    text-transform:uppercase;
-    text-align:  center;
+
     position: absolute;
     top: 1%;
     right: 1%;
 }
-
+.bottom {
+    margin-top: 40px;
+}
 
 
 

@@ -25,22 +25,21 @@ function changeSelectAge () {
 }
 changeSelectAge();
 function langshooce(lang){
+
     $.getJSON('languages/'+lang+'.json', function(data) {
         $.each(data, function(key, val) {
             if(key == 'Next') 
                 $('.nextPage').text(val);
             if(key=='Thanks')
                 $('.succes p').text(val);
-//            if(key=='Choose')
-//                $('#agee').text(val);
-             if(key=='selectAge')
+            if(key=='selectAge')
                 $('#selectAge').text(val);
-             if(key=='Describe')
-                $('#Describe').text(val);
-             if(key=='shortcomings')
-                $('#shortcomings').text(val);
+            if(key=='now')
+                $('#now').text(val);
             if(key=='Thanks')
                 $('#Thanks').text(val);
+            if(key=='reload')
+                $('#reload').text(val);
         });
     });
 } 
@@ -58,6 +57,7 @@ function remove(){
 function exitBlock(){
     $('.age').css('display','none');
     $('.limitations').css('display','none');
+    $('.theTask').css('display','none');
     $('.how-to-fix').css('display','none'); 
 }
 
@@ -75,7 +75,7 @@ function save(id) {
 
         });
     }
-    // array = JSON.stringify(array);
+
     $.ajax({
         type: "post",
         url: "/save-problem.php",
@@ -88,26 +88,50 @@ function save(id) {
 function nextPage(x) {
     clearTime();
     flagExit++;
-    if(flagExit>=5) {
+    if(flagExit>=7) {
         save(dataActionId);
         exitBlock();
         $('.succes').css('display','block');
     }else {
 
-        if(flagExit==3) {
+        if(flagExit==5) {
             $('.question').text(dataAction);
             save(dataObjectId);
             remove();
 
         }
+        if(flagExit==2) {
+            $.getJSON('languages/'+lang+'.json', function(data) {
+                $.each(data, function(key, val) {
+                    if(key=='Describe1')
+                        $('#Describe').text(val);
+                    if(key=='shortcomings1')
+                        $('#shortcomings').text(val);
+                });
+            });
+        }
+        if(flagExit==5) {
+            $.getJSON('languages/'+lang+'.json', function(data) {
+                $.each(data, function(key, val) {
+                    if(key=='Describe2')
+                        $('#Describe').text(val);
+                    if(key=='shortcomings2')
+                        $('#shortcomings').text(val);
+                });
+            });
+        }
 
 
-        if(flagExit==1||flagExit==3) {
+        if(flagExit==2||flagExit==5) {
+
             timer(dataTime1 * 1000);
             $('.plus').css('display','block');
         }
-        if(flagExit==2||flagExit==4)
+        if(flagExit==3||flagExit==6) {
+
             timer(dataTime2 * 1000);
+        }
+
 
         let href = $(x).attr('href');
         exitBlock();
@@ -123,11 +147,19 @@ function clearTime() {
 
 function timer(time){
     $('.timer').empty;
-    let timer =time/1000;
-    $('.timer').text(timer);
+    let timer =time/1000,seconds=Math.floor( timer%60),minutes=Math.floor((timer/60)%60);
+    if(seconds>9)
+        $('.timer').text(minutes+"."+seconds);
+    else
+        $('.timer').text(minutes+".0"+seconds);
     timerOne = setInterval(function(){
         timer--;
-        $('.timer').text(timer);
+        seconds =Math.floor( timer%60);
+        minutes = Math.floor((timer/60)%60);
+        if(seconds>9)
+            $('.timer').text(minutes+"."+seconds);
+        else
+            $('.timer').text(minutes+".0"+seconds);
         if(timer<=0) {
             clearTime();
         }
@@ -176,5 +208,8 @@ $('button[href=how-to-fix]').on('click', function(){
             $('.how-to-fix-main').append('<div class="how-to-fix-block"><p  class="'+i+' quest">'+question+'</p><div class="how-to-fix-block-list" id="list'+i+'"><p><input type="text"></p></div><button class="plus-how-to-fix">+</button></div>');
         }
     }
+});
+$('#reload').on('click', function(){
+    location.reload();  
 });
 langshooce(lang);

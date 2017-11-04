@@ -6,7 +6,7 @@
         $user = R::findOne('users','login = ?', array($data['login']));
         
         if( $user ){
-            if( password_verify($data['password'], $user->password) ){
+            if( $data['password']== $user->password ){
                 setcookie("logged_user", $user, time() + 86400);
                 setcookie('password', $data['password'], time() + 86400, '/');
                 echo '<div style="padding: 10px 0; width: 320px; border-radius: 10px; background: green; color: #fff; position: absolute; top: 50px; text-align: center;">Вы успешно зарегестрированы! Можете перейти в <a href="/admin/">личный кабинет</a></a></div>';
