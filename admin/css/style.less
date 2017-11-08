@@ -3,14 +3,6 @@
 @bg-container: #fff;
 @bg-hover: rgba(0,0,0,0.1);
 @font-face{
-    font-family: "ClassicaOne";
-    src: url("../fonts/ClassicaOne.ttf");
-}
-@font-face{
-    font-family: "Bringin";
-    src: url("../fonts/Bringin.ttf");
-}
-@font-face{
     font-family: "OpenSans-Bold";
     src: url("../fonts/OpenSans-Bold.ttf");
 }
@@ -40,7 +32,7 @@ li{
     list-style: none;
 }
 body{
-    overflow: hidden;
+    overflow-x: hidden;
     background: @bg-body;
     padding-top: 38px;
 }
@@ -155,7 +147,7 @@ body{
         display: flex;
         line-height: 40px;
         border: 1px solid #999;
-        font-family: Bringin;
+        font-family: OpenSans-Light;
         position: absolute;
         background: #fff;
         top: -40px;
@@ -248,7 +240,7 @@ body{
                 position: absolute;
                 display: none;
                 top: 100%;
-                left: 0;
+                right: 0;
                 width: 285px;
                 border: 1px solid #00A0FF;
                 background: #fff;
@@ -395,19 +387,39 @@ body{
             }
         }
     }
+    .task--active {
+        display: flex;
+        flex-direction: column;
+        .add {
+            padding: 15px 30px;
+            border-radius: 25px;
+            border: 1px solid #00A0FF;
+            color: #00A0FF;
+            font-size: 16px;
+            margin-top: 10px;
+            &:hover {
+                background: #00A0FF;
+                color: #fff;
+            }
+        }
+    }
 }
 .block {
-    width: 45%;
+    width: 100%;
     padding: 10px 2.5%;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     h2 {
         text-align: center;
         padding-bottom: 20px;
     }
-    &.objects {
-        border-left: 1px solid #222;
-        float: right;
-    }
-    &.actions {
-        border-right: 1px solid #222;
-    }
+}
+#deactivated {
+    color: red;
+}
+#activated {
+    color: green;
 }

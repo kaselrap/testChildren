@@ -10,6 +10,11 @@ $(document).ready(function () {
     function taskAdd() {
         $('.add').on('click', function (e) {
             e.preventDefault();
+            var type = $(this).parent().find('.deactivate-all').data('type');
+            var age = $('body').data('age');
+            $('.container--add').find('option').attr('selected', false);
+            $('.container--add').find('option[value=' + type + ']').attr('selected', true);
+            $('.container--add').find('option[value=' + age + ']').attr('selected', true);
             $('html').css({'overflow':'hidden'});
             $('.container--add').css({'display':'flex'});
             $('.container--add .overlay').fadeIn(300, function () {
@@ -31,6 +36,7 @@ $(document).ready(function () {
                 url: "/admin/include/createQuestion.php",
                 data: $(this).serialize(),
                 success: function (data) {
+                    window.location = window.location;
                    $('.container--add .task--add').fadeOut(300, function () {
                         $('.container--add .overlay').fadeOut(300, function () {
                             $('.container--add').css({'display':'none'});
@@ -60,10 +66,12 @@ $(document).ready(function () {
         });
     }
     function dropdownSettings () {
-        $(document).on('click', 'a.settings.button', function (e) {
+        $(document).on('click', 'a.settings.button, .add', function (e) {
             e.preventDefault();
             var bool = ( $('#settings').hasClass('active') ) ? 1 : 0;
-            console.log(bool);
+            if ( $(this).hasClass('add') ) {
+                bool = 1;
+            }
             ( bool == 0 ) ? $('#settings').slideDown() : $('#settings').slideUp();
             ( bool == 0 ) ? $('#settings').addClass('active') : $('#settings').removeClass('active');
         });
@@ -144,9 +152,9 @@ $(document).ready(function () {
         $(document).on('click', '.checkbox', function (e) {
             e.preventDefault();
             $(this).parent().parent().siblings().children().find('.checkbox').attr('id', 'deactivated');
-            $(this).parent().parent().siblings().children().find('.checkbox').text('Deactivated');
+            $(this).parent().parent().siblings().children().find('.checkbox').removeClass('fa-check').addClass('fa-times');
             $(this).attr('id', 'activated');
-            $(this).text('Active');
+            $(this).removeClass('fa-times').addClass('fa-check');
             var id = $(this).data('id');
             var checked = 1;
             var age = $('body').data('age');
@@ -166,7 +174,8 @@ $(document).ready(function () {
             e.preventDefault();
             var age = $('body').data('age');
             var type = $(this).data('type');
-            $(this).siblings().find('.checkbox').text('Deactivated');
+            $(this).siblings().find('.checkbox').attr('id', 'deactivated');
+            $(this).siblings().find('.checkbox').removeClass('fa-check').addClass('fa-times').css('color: red');
             $.ajax({
                 type: 'POST',
                 url: '/admin/include/deactivateAll.php',
@@ -177,6 +186,11 @@ $(document).ready(function () {
             });
         });
     }
+     function processAjaxData(response, urlPath){
+         document.getElementById("content").innerHTML = response.html;
+         document.title = response.pageTitle;
+         window.history.pushState({"html":response.html,"pageTitle":response.pageTitle},"", urlPath);
+     }
     deactivateAll();
     selectQuestionForChildren();
     changeSelectAge();
