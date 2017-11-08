@@ -104,26 +104,6 @@
                                     <i aria-hidden="true"></i>
                                 </a>
                             </li>
-                            <?php
-                            $countActive = R::count('questions','age = ?', array('8-10'));
-                            $countDone =R::count('questions','age = ?', array('11-14'));
-                            $countTrash = R::count('questions','age = ?', array('15-16'));
-                            ?>
-                            <li>
-                                <a class="active">
-                                    <?php echo $countActive; ?>
-                                </a>
-                                <p class="hidden-info">It's questions for <strong>8</strong> to <strong>10</strong> age group of child</p>
-                            </li>
-                            <li>
-                                <a class="done"><?php echo $countDone; ?></a>
-                                <p class="hidden-info">It's questions for <strong>11</strong> to <strong>14</strong> age group of child</p>
-
-                            </li>
-                            <li>
-                                <a class="trash"><?php echo $countTrash; ?></a>
-                                <p class="hidden-info">It's questions for <strong>15</strong> to <strong>17</strong> age group of child</p>
-                            </li>
                             <li><a class="exit" href="/admin/logout.php">Exit</a></li>
                         </ul>
                     </div>
