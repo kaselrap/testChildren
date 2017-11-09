@@ -99,31 +99,6 @@
                                     </form>
                                 </div>
                             </li>
-                            <li>
-                                <a class="fa fa-plus add" href="#">
-                                    <i aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <?php
-                            $countActive = R::count('questions','age = ?', array('8-10'));
-                            $countDone =R::count('questions','age = ?', array('11-14'));
-                            $countTrash = R::count('questions','age = ?', array('15-16'));
-                            ?>
-                            <li>
-                                <a class="active">
-                                    <?php echo $countActive; ?>
-                                </a>
-                                <p class="hidden-info">It's questions for <strong>8</strong> to <strong>10</strong> age group of child</p>
-                            </li>
-                            <li>
-                                <a class="done"><?php echo $countDone; ?></a>
-                                <p class="hidden-info">It's questions for <strong>11</strong> to <strong>14</strong> age group of child</p>
-
-                            </li>
-                            <li>
-                                <a class="trash"><?php echo $countTrash; ?></a>
-                                <p class="hidden-info">It's questions for <strong>15</strong> to <strong>17</strong> age group of child</p>
-                            </li>
                             <li><a class="exit" href="/admin/logout.php">Exit</a></li>
                         </ul>
                     </div>
@@ -159,8 +134,8 @@
                                                 <td>
                                                     <?php 
                                                         echo ($object['checked'] == 0 || $object['checked'] == NULL) ? 
-                                                        '<a href="#" id="deactivated" class="checkbox" data-id="' . $object["id"] . '">Deactivated</a>' :
-                                                        '<a href="#" id="activated" class="checkbox" data-id="' . $object["id"] . '">Activate</a>';
+                                                        '<a href="#" id="deactivated" class="checkbox fa fa-times" data-id="' . $object["id"] . '"></a>' :
+                                                        '<a href="#" id="activated" class="checkbox fa fa-check" data-id="' . $object["id"] . '"></a>';
                                                     ?>
                                                 </td>
                                                 <td><?php echo $object['type']; ?></td>
@@ -183,6 +158,9 @@
                                     ?>
                                 </tbody>
                             </table>
+                            <a class="fa fa-plus add" href="#">
+                                <i aria-hidden="true"></i>
+                            </a>
                         </div>
                         <div class="block actions">
                             <h2 class="title">Actions</h2>
@@ -213,8 +191,8 @@
                                                 <td>
                                                     <?php 
                                                         echo ($action['checked'] == 0 || $action['checked'] == NULL) ? 
-                                                        '<a href="#" id="deactivated" class="checkbox" data-id="' . $action["id"] . '">Deactivated</a>' :
-                                                        '<a href="#" id="activated" class="checkbox" data-id="' . $action["id"] . '">Activate</a>';
+                                                        '<a href="#" id="deactivated" class="checkbox fa fa-times" data-id="' . $action["id"] . '"></a>' :
+                                                        '<a href="#" id="activated" class="checkbox fa fa-check" data-id="' . $action["id"] . '"></a>';
                                                     ?>
                                                 </td>
                                                 <td><?php echo $action['type']; ?></td>
@@ -237,7 +215,9 @@
                                     ?>
                                 </tbody>
                             </table>
-                        </div>
+                            <a class="fa fa-plus add" href="#">
+                                <i aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
