@@ -42,6 +42,9 @@
                     <div class="logForm">
                         <ul>
                             <li>
+                                <a href='include/downloadXlsFile.php?name=report'>Generate and download xls report</a>
+                            </li>
+                            <li>
                                 <select name="ageS" id="ageS">
                                 <?php
                                     if ($age == '11-14') {
