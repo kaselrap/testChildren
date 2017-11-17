@@ -26,11 +26,6 @@
         $question_object_langs = json_decode($question_object['question']);
     ?>
      <body data-timer-first="<?php echo getSettings()->timer1; ?>" data-timer-second="<?php echo getSettings()->timer2; ?>" data-lang="<?php echo $lang ?>" data-object="<?php echo $question_object_langs->$lang; ?>" data-object-id="<?php echo $question_object->id; ?>" data-action-id="<?php echo $question_action->id; ?>" data-action="<?php echo $question_action_langs->$lang; ?>">
-        <div class="element">
-          <div class="element__text">
-            Text inside element
-          </div>
-        </div>
         <div id="preload"></div>
         <div class="bg"></div>
         <header>

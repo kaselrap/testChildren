@@ -3,17 +3,12 @@
 	require 'libs/db.php';
 
 	function getQuestions ( $type = 'object', $lang = 'en' ) {
-		return R::findAll('questions', 'type = ? AND lang = ?', array($type, $lang));
+		return R::find('questions', 'type = ? AND lang = ?', array($type, $lang));
 	}
 
 	function getQuestion ( $age, $type, $checked = 1 ) {
 		return R::findOne('questions', 'age = ? AND type = ? AND checked = ?', array($age, $type, $checked));
 	}
-
-	function getQuestionById ( $id_question ) {
-		return R::findOne('questions', $id_question);
-	}
-
 	function getLang ( $lang ) {
 		R::findAll('questions', 'lang = ?', array($lang) );
 	}
@@ -40,7 +35,7 @@
 	}
 
 	function getProblems ( $id_question ) {
-		return R::findAll('problems');
+		return R::findAll('problems', 'id_question = ?', array($id_question));
 	}
 
 	function getProblem ( $id_question ) {
