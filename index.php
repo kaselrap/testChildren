@@ -94,6 +94,7 @@
             
             <div class="how-to-fix">
                 <h1 id="shortcomings"></h1>
+                   <p class="question"><?php echo $question_object_langs->$lang;; ?></p>
                 <div class="how-to-fix-main"></div>
                 <button href="theTask" class="nextPage bottom">Next</button>
                 <p class="timer"></p>
