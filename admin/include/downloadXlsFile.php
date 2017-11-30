@@ -26,6 +26,7 @@ if(isset($_GET['name']))
                 <th>Question - De</th>
                 <th>Question - Es</th>
                 <th>Question - It</th>
+                <th>Gender</th>
                 <th>Problems</th>
             </tr>
         </thead> 
@@ -40,6 +41,7 @@ if(isset($_GET['name']))
         foreach ($object as $key => $value) {    
             $msg .= "<td>" . $value . "</td>";
         }
+        $msg .= "<td>" . $problem->gender . "</td>";
         $msg .= "<td>" . $problem->problem . "</td>";
         $msg .= "<td>" . $problem->id_question . "</td>";
         $msg .= "</tr>";

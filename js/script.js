@@ -16,6 +16,10 @@ $(window).on('load', function() {
     },1000);
 });
 
+var $gender = $('select#gender').val();
+$(document).on('change', 'select#gender', function () {
+    $gender = $(this).find('option:selected').val();
+});
 
 function changeSelectAge () {
     $(document).on('change', 'select#age', function () {
@@ -65,6 +69,7 @@ function save(id) {
     let array = {};
     array['action'] ={};
     array['id'] = id;
+    array['gender'] = $gender;
     array['age'] = dataAge;
     for(let i = 0; i<=flagQestion; i++) {
 
