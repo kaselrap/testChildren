@@ -67,6 +67,14 @@
                     }
                 ?>
                 </select> 
+                   <select >               
+               
+                        <option value="man" selected>Мужской</option>
+                        <option value="girl" >Женский</option>
+                       
+                    
+               
+                </select> 
                 <?php
                     if ( empty( $question_action ) || empty ( $question_object ) ) {
                         echo '<p>Тест не может быть начат. Вопросов нет!</p>';
@@ -94,6 +102,7 @@
             
             <div class="how-to-fix">
                 <h1 id="shortcomings"></h1>
+                   <p class="question"><?php echo $question_object_langs->$lang;; ?></p>
                 <div class="how-to-fix-main"></div>
                 <button href="theTask" class="nextPage bottom">Next</button>
                 <p class="timer"></p>
