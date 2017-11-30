@@ -5,7 +5,9 @@
 	function getQuestions ( $type = 'object', $lang = 'en' ) {
 		return R::find('questions', 'type = ? AND lang = ?', array($type, $lang));
 	}
-
+	function getQuestionById ( $id ) {
+		return R::findOne('questions', $id);
+	}
 	function getQuestion ( $age, $type, $checked = 1 ) {
 		return R::findOne('questions', 'age = ? AND type = ? AND checked = ?', array($age, $type, $checked));
 	}
@@ -26,9 +28,10 @@
 		R::store($questions);
 		return true;
 	}
-	function addProblems ( $id_question, $problem ) {
+	function addProblems ( $id_question, $gender, $problem ) {
 		$problems = R::dispense( 'problems' );
 		$problems->id_question = $id_question;
+		$problems->gender = $gender;
 		$problems->problem = $problem;
 		R::store($problems);
 		return true;
