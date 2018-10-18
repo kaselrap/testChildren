@@ -1,4 +1,12 @@
 {
-"Keep":"Keep Your Private Photos & Videos Secure",
-"Free":"7-Day Free Trial"
+    "Next": "Weiter",
+    "Thanks": "Danke!",
+    "Choose": "Alter",
+    "selectAge": "Alter",
+    "Describe1": "Nenne innerhalb des Zeitlimits so viele Mängel, Unzulänglichkeiten und Nachteile des gegebenen Objektes, wie du kannst.",
+    "shortcomings1": "Wie können wir dies verbessern? (spezifiziere innerhalb des Zeitlimits so viele Alternativen, wie du kannst)",
+    "Describe2": "Nenne innerhalb des Zeitlimits so viele Mängel, Unzulänglichkeiten und Nachteile des gegebenen Prozesses, wie du kannst.",
+    "shortcomings2": "Wie können wir dies verbessern? (spezifiziere innerhalb des Zeitlimits so viele Alternativen, wie du kannst)",
+    "now": "Du wirst gleich mehrere Aufgaben bekommen. Jede Aufgabe hat ein Zeitlimit. Bist du bereit?",
+    "reload": "Neustarten"
 }

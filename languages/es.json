@@ -1,4 +1,12 @@
 {
-"Keep":"Держите Личные Фото и Видео под Надежной Защитой",
-"Free":"7-дневная пробная версия"
+    "Next": "Continuar",
+    "Thanks": "Gracias",
+    "Choose": "Años",
+    "selectAge": "Años",
+    "Describe1": "Indique tantas deficiencias, imperfecciones o desventajas del objeto dado, como pueda dentro del límite de tiempo.",
+    "shortcomings1": "¿Cómo podemos mejorar esto? (Especifique tantas alternativas como pueda dentro del límite de tiempo)",
+    "Describe2": "Indique tantas deficiencias, imperfecciones o desventajas del proceso dado, como pueda dentro del límite de tiempo.",
+    "shortcomings2": "¿Cómo podemos mejorar esto? (Especifique tantas alternativas como pueda dentro del límite de tiempo)",
+    "now": "En un momento se le darán varias tareas. Cada tarea tendrá un límite de tiempo. ¿Está listo?",
+    "reload": "Reiniciar"
 }

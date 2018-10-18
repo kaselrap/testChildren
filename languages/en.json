@@ -1,0 +1,12 @@
+{
+    "Next": "Continue",
+    "Thanks": "Thanks!",
+    "Choose": "Age",
+    "selectAge": "Age",
+    "Describe1": "Indicate as much deficiencies, imperfections or disadvantages of the given object, as you can within the time limit.",
+    "shortcomings1": "How can we improve this?(specify as much alternatives, as you can within the time limit)",
+    "Describe2": "Indicate as much deficiencies, imperfections or disadvantages of the given process, as you can within the time limit.",
+    "shortcomings2": "How can we improve this?(specify as much alternatives, as you can within the time limit)",
+    "now": "In a moment you will be given several tasks. Each task will have a time limit. Are you ready?",
+    "reload": "Re-start."
+}

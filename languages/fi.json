@@ -1,0 +1,12 @@
+{
+    "Next": "Seuraava",
+    "Thanks": "Kiitos!",
+    "Choose": "Ikä",
+    "selectAge": "Ikä",
+    "Describe1": "Ilmoita mahdollisimman paljon annetun objektin vajavaisuuksia, puutteita ja haittoja kuin voit määrätyn ajan aikana. ",
+    "shortcomings1": "Kuinka voimme parantaa tätä? (Mainitse niin paljon vaihtoehtoja kuin voit määrätyn ajan aikana)",
+    "Describe2": "Ilmoita mahdollisimman paljon annetun prosessin vajavaisuuksia, puutteita ja haittoja kuin voit määrätyn ajan aikana. ",
+    "shortcomings2": "Kuinka voimme parantaa tätä?(Mainitse niin paljon vaihtoehtoja kuin voit määrätyn ajan aikana)",
+    "now": "Pian saat useita tehtäviä. Jokaisen tehtävän tekemiseen on rajallinen aika. Oletko valmis?",
+    "reload": "Käynnistä uudelleen"
+}
