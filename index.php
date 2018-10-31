@@ -29,10 +29,10 @@
            data-timer-first="<?php echo getSettings()->timer1; ?>" 
            data-timer-second="<?php echo getSettings()->timer2; ?>" 
            data-lang="<?php echo $lang ?>" 
-           data-object="<?php echo echo (isset($question_object_langs->$lang) && !empty($question_object_langs->$lang))? $question_object_langs->$lang:$question_object_langs->en; ?>" 
+           data-object="<?php echo (isset($question_object_langs->$lang) && !empty($question_object_langs->$lang))? $question_object_langs->$lang:$question_object_langs->en; ?>" 
            data-object-id="<?php echo $question_object->id; ?>" 
            data-action-id="<?php echo $question_action->id; ?>" 
-           data-action="<?php echo echo (isset($question_action_langs->$lang) && !empty($question_action_langs->$lang))? $question_action_langs->$lang:$question_action_langs->en; ?>">
+           data-action="<?php echo (isset($question_action_langs->$lang) && !empty($question_action_langs->$lang))? $question_action_langs->$lang:$question_action_langs->en; ?>">
         <div id="preload"></div>
         <div class="bg"></div>
         <header>
