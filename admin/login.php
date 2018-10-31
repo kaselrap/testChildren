@@ -1,24 +1,32 @@
 <?php
     require '../functions.php';
     $data = $_POST;
-    if( isset($data['do_login']) ){
-        $errors = array();
-        $user = R::findOne('users','login = ?', array($data['login']));
-        
-        if( $user ){
-            if( $data['password'] == $user->password ){
-                setcookie("logged_user", $user, time() + 86400);
-                setcookie('password', $data['password'], time() + 86400, '/');
-                echo '<div style="padding: 10px 0; width: 320px; border-radius: 10px; background: green; color: #fff; position: absolute; top: 50px; text-align: center;">Вы успешно зарегестрированы! Можете перейти в <a href="/admin/">личный кабинет</a></a></div>';
+    $count = R::count('users');
+    if ( $count > 0 ) {
+        if( isset($data['do_login']) ){
+            $errors = array();
+            $user = R::findOne('users','login = ?', array($data['login']));
+
+            if( $user ){
+                if( $data['password'] == $user->password ){
+                    setcookie("logged_user", $user, time() + 86400);
+                    setcookie('password', $data['password'], time() + 86400, '/');
+                    echo '<div style="padding: 10px 0; width: 320px; border-radius: 10px; background: green; color: #fff; position: absolute; top: 50px; text-align: center;">Вы успешно зарегестрированы! Можете перейти в <a href="/admin/">личный кабинет</a></a></div>';
+                } else{
+                    $errors[] = "Пароль не верный!";
+                }
             } else{
-                $errors[] = "Пароль не верный!";
+                $errors[] = "Пользователь с таким логином не найден!";
             }
-        } else{
-            $errors[] = "Пользователь с таким логином не найден!";
+            if( !empty($errors) ){
+                echo '<div style="padding: 10px 0; width: 320px; border-radius: 10px; background: red; color: #fff; position: absolute; top: 80px; text-align: center;">'.array_shift($errors).'</div>';
+            }
         }
-        if( !empty($errors) ){
-            echo '<div style="padding: 10px 0; width: 320px; border-radius: 10px; background: red; color: #fff; position: absolute; top: 80px; text-align: center;">'.array_shift($errors).'</div>';
-        }
+    } else {
+        $user = R::dispense('users');
+        $user->login = 'admin';
+        $user->password = 'admin';
+        R::store($user);
     }
 ?>
 <!doctype html>
